@@ -12,9 +12,9 @@ bool binsearch(int n[], int x, int l, int r)
     if(x == n[m])
         return true;
     if(x < n[m])
-        return binsearch(x, l, m - 1);
+        return binsearch(n, x, l, m - 1);
     if(x > n[m])
-        return binsearch(x, m + 1, r);
+        return binsearch(n, x, m + 1, r);
     if(l > r)
         return false;
 
@@ -44,9 +44,9 @@ bool binsearch(int n[], int x, int l, int r)
         return true;
     }
     if(x < n[m])
-        return binsearch(x, l, m - 1);
+        return binsearch(n, x, l, m - 1);
     if(x > n[m])
-        return binsearch(x, m + 1, r);
+        return binsearch(n, x, m + 1, r);
     if(l > r) {
         cout << "Data tidak ditemukan"<<endl;
         return false;
@@ -59,7 +59,7 @@ int main() {
     int arr[] { 1, 2, 5, 7, 8, 9, 9, 11, 15, 16, 20 };
     int l { 0 };
     int r { 10 };
-    BinaryRecursif(arr, x, l, r);
+    binsearch(arr, x, l, r);
 
     return 0;
 }

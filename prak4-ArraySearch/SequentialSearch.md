@@ -54,7 +54,7 @@ Akhir proses dari contoh di atas akan didapatkan nilai 3, sehingga pencarian dik
       ```cpp
 #include <iostream>
 
-      using namespace std;
+using namespace std;
 
 void Sequential(int x = 7)
 {
