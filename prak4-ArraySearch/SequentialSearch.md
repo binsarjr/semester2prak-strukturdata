@@ -51,7 +51,7 @@ Akhir proses dari contoh di atas akan didapatkan nilai 3, sehingga pencarian dik
 
 
 ### Jawaban
-      ```cpp
+```cpp
 #include <iostream>
 
 using namespace std;
