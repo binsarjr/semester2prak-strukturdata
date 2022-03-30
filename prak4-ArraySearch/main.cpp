@@ -56,6 +56,8 @@ void Binary(int x = 5)
 bool BinaryRecursif(int n[], int x, int l, int r)
 {
     int m = l + (r - l) / 2;
+    if (l > r)
+        return false;
     if (x == n[m]) {
         cout << "Data ditemukan pada index ke-" << m << endl;
         return true;
@@ -64,8 +66,6 @@ bool BinaryRecursif(int n[], int x, int l, int r)
         return BinaryRecursif(n, x, l, m - 1);
     if (x > n[m])
         return BinaryRecursif(n, x, m + 1, r);
-    if (l > r)
-        return false;
 }
 
 void BinaryRecursifSolution()
@@ -79,46 +79,45 @@ void BinaryRecursifSolution()
     }
 }
 
-//	void MultipleSequential() {
-//		const int MAX_SIZE {
-//			20
-//		};
-//		int data[MAX_SIZE]; // array data
-//		int idx[MAX_SIZE]; // array untuk menyimpan index elemen yang ditemukan
-//		int count {0}; // counter, menghitung ada berapa banyak data yang ditemukan
-//
-//
-//		int n;
-//		cout << "jumlah data: ";
-//		cin << n;
-//		for(auto i = 0; i < n; ++i) {
-//			cout << "data ke-"<< i ;
-//			cin >> data[i];
-//		}
-//		int x;
-//		cout << "cari: ";
-//		cin >> x;
-//
-//		for(int i = 0; i < n; ++i) {
-//			// jika x ditemukan pada data[i]
-//
-//			if(x == data[i]) {
-//				// simpan index i ke array x
-//				idx[count++] = i;
-//			}
-//		}
-//
-//
-//		// jika counter > 0, berarti ada data yang ditemukan
-//		if(count > 0) {
-//			cout << "ditemukan pada index: ";
-//			for(auto i = 0; i < count; ++i) {
-//				cout << idx[i] << ", ";
-//			}
-//		} else {
-//			cout << "data tidak ditemukan\n";
-//		}
-//	}
+void MultipleSequentialSearch(int x, int n, int data[], int idx[], int& count)
+{
+    for (int i = 0; i < n; ++i) {
+        // jika x ditemukan pada data[i]
+        if (x == data[i]) {
+            // simpan index i ke array idxc
+            idx[count++] = i;
+        }
+    }
+}
+
+void MultipleSequential()
+{
+    const int MAX_SIZE { 20 };
+    int data[MAX_SIZE]; // array data
+    int idx[MAX_SIZE];  // array untuk menyimpan index elemen yang ditemukan
+    int count { 0 };    // counter, menghitung ada berapa banyak data yang ditemukan
+
+    int n;
+    cout << "jumlah data: ";
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cout << "data ke-" << i << " ";
+        cin >> data[i];
+    }
+    int x;
+    cout << "cari: ";
+    cin >> x;
+    MultipleSequentialSearch(x, n, data, idx, count);
+    // jika counter > 0, berarti ada data yang ditemukan
+    if (count > 0) {
+        cout << "ditemukan pada index: ";
+        for (int i = 0; i < count; ++i) {
+            cout << idx[i] << ", ";
+        }
+    } else {
+        cout << "data tidak ditemukan\n";
+    }
+}
 }
 
 int main()
@@ -129,5 +128,7 @@ int main()
     Search::Binary();
     cout << "Binary Recursif Search\n";
     Search::BinaryRecursifSolution();
+    cout << "Multiple Sequential Search\n";
+    Search::MultipleSequential();
     return 0;
 }

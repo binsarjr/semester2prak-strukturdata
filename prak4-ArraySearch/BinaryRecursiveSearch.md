@@ -29,7 +29,9 @@ Jika data ditemukan maka tunjukkan data tersebut berada di indeks keberapa !
 
 
 ### Jawaban
-Cukup dengan menambahkan cout data ditemukan pada kondisi yang mengembalikkan nilai `true`
+Pada program rekursi pada umumnya data yang tidak ditemukanlah yang menjadi kondisi awal.
+Sehingga kondisi `l > r` yang sebelumnya ada dibagian bawah kita pindahkan ke paling atas.
+Lalu, tambahkan cout data ditemukan pada kondisi yang mengembalikkan nilai `true`
 dan cout data tidak ditemukan pada kondisi yang mengembalikkan nilai `false`
 ```cpp
 #include <iostream>
@@ -39,6 +41,10 @@ using namespace std;
 bool binsearch(int n[], int x, int l, int r)
 {
     int m = l + (r - l) / 2;
+    if(l > r) {
+        cout << "Data tidak ditemukan"<<endl;
+        return false;
+    }
     if(x == n[m]) {
         cout << "Data ditemukan pada index ke-"<<m<<endl;
         return true;
@@ -47,10 +53,7 @@ bool binsearch(int n[], int x, int l, int r)
         return binsearch(n, x, l, m - 1);
     if(x > n[m])
         return binsearch(n, x, m + 1, r);
-    if(l > r) {
-        cout << "Data tidak ditemukan"<<endl;
-        return false;
-    }
+    
 
 }
 
