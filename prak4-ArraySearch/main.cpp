@@ -79,7 +79,8 @@ void BinaryRecursifSolution()
     }
 }
 
-void MultipleSequentialSearch(int x, int n, int data[], int idx[], int& count)
+void MultipleSequentialSearch(int x, int n, int data[],
+    int idx[], int& count)
 {
     for (int i = 0; i < n; ++i) {
         // jika x ditemukan pada data[i]
@@ -94,9 +95,10 @@ void MultipleSequential()
 {
     const int MAX_SIZE { 20 };
     int data[MAX_SIZE]; // array data
-    int idx[MAX_SIZE];  // array untuk menyimpan index elemen yang ditemukan
-    int count { 0 };    // counter, menghitung ada berapa banyak data yang ditemukan
-
+    // array untuk menyimpan index elemen yang ditemukan
+    int idx[MAX_SIZE];
+    // counter, menghitung ada berapa banyak data yang ditemukan
+    int count { 0 };
     int n;
     cout << "jumlah data: ";
     cin >> n;
@@ -126,6 +128,7 @@ int main()
     Search::Sequential(10);
     cout << "Binary Search\n";
     Search::Binary();
+    Search::Binary(10);
     cout << "Binary Recursif Search\n";
     Search::BinaryRecursifSolution();
     cout << "Multiple Sequential Search\n";
