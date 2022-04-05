@@ -2,6 +2,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace std::chrono;
 
 namespace Sorting {
 
@@ -46,7 +47,7 @@ int tampil()
 }
 int bubbleSort()
 {
-    auto start = chrono::high_resolution_clock::now();
+    auto start = high_resolution_clock::now();
     for (int i = 1; i < n; i++) {
         for (int j = n - 1; j >= i; j--) {
             if (data[j] < data[j - 1]) {
@@ -56,14 +57,14 @@ int bubbleSort()
         tampil();
     }
     cout << endl;
-    auto stop = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
     cout << "Duration: " << duration.count() << "ms" << endl;
     return 0;
 }
 int selectionSort()
 {
-    auto start = chrono::high_resolution_clock::now();
+    auto start = high_resolution_clock::now();
 
     int i, j, posisi, tukar;
     for (i = 0; i < (n - 1); i++) {
@@ -80,15 +81,15 @@ int selectionSort()
         }
         tampil();
     }
-    auto stop = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
     cout << "Duration: " << duration.count() << "ms" << endl;
 
     return 0;
 }
 void insertionSort()
 {
-    auto start = chrono::high_resolution_clock::now();
+    auto start = high_resolution_clock::now();
 
     int temp, j;
     for (int i = 1; i < n; i++) {
@@ -102,8 +103,8 @@ void insertionSort()
         data[j + 1] = temp;
         tampil();
     }
-    auto stop = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
     cout << "Duration: " << duration.count() << "ms" << endl;
 }
 }
