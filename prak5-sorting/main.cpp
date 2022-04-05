@@ -1,6 +1,8 @@
-//#include <conio.h>
+#include <chrono>
 #include <iostream>
+
 using namespace std;
+
 namespace Sorting {
 
 int data[10], data2[10];
@@ -42,8 +44,9 @@ int tampil()
     cout << endl;
     return 0;
 }
-int bubble_sort()
+int bubbleSort()
 {
+    auto start = chrono::high_resolution_clock::now();
     for (int i = 1; i < n; i++) {
         for (int j = n - 1; j >= i; j--) {
             if (data[j] < data[j - 1]) {
@@ -53,10 +56,15 @@ int bubble_sort()
         tampil();
     }
     cout << endl;
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    cout << "Duration: " << duration.count() << "ms" << endl;
     return 0;
 }
 int selectionSort()
 {
+    auto start = chrono::high_resolution_clock::now();
+
     int i, j, posisi, tukar;
     for (i = 0; i < (n - 1); i++) {
         posisi = i;
@@ -72,11 +80,17 @@ int selectionSort()
         }
         tampil();
     }
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    cout << "Duration: " << duration.count() << "ms" << endl;
+
     return 0;
 }
 void insertionSort()
 {
-    int temp,j;
+    auto start = chrono::high_resolution_clock::now();
+
+    int temp, j;
     for (int i = 1; i < n; i++) {
         temp = data[i];
         j = i - 1;
@@ -88,28 +102,30 @@ void insertionSort()
         data[j + 1] = temp;
         tampil();
     }
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    cout << "Duration: " << duration.count() << "ms" << endl;
 }
 }
 int main()
 {
     cout << "\n\nALGORITMA BUBBLE SORT" << endl;
     cout << "----------------------" << endl;
-
     Sorting::input();
     cout << "Proses Bubble Sort" << endl;
-    Sorting::bubble_sort();
+    Sorting::bubbleSort();
 
     cout << "\n\nALGORITMA Selection SORT" << endl;
     cout << "----------------------" << endl;
     Sorting::refill();
     cout << "Proses Selection Sort" << endl;
-    
     Sorting::selectionSort();
+
     cout << "\n\nALGORITMA Insertion SORT" << endl;
     cout << "----------------------" << endl;
     Sorting::refill();
     cout << "Proses Insertion Sort" << endl;
-    
     Sorting::insertionSort();
+
     return 0;
 }
