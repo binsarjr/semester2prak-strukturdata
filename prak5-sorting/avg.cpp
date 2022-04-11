@@ -20,8 +20,6 @@ void refill()
 {
     for (int i = 0; i < n; i++) {
         data[i] = data2[i];
-        cout << "Masukkan Data Ke-"<<i+1<<" = ";
-        cout <<data[i]<<endl;
     }
 }
 int input()
@@ -56,8 +54,9 @@ int bubbleSort()
                 tukar(j, j - 1);
             }
         }
-        tampil();
+        
     }
+    tampil();
     cout << endl;
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
@@ -81,8 +80,9 @@ int selectionSort()
             data[i] = data[posisi];
             data[posisi] = tukar;
         }
-        tampil();
+        
     }
+    tampil();
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
     cout << "Duration: " << duration.count() << "ms" << endl;
@@ -103,8 +103,9 @@ void insertionSort()
         }
 
         data[j + 1] = temp;
-        tampil();
+        
     }
+    tampil();
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
     cout << "Duration: " << duration.count() << "ms" << endl;
